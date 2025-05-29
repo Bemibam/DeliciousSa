@@ -7,15 +7,15 @@ public class OrderUtils {
     }
 
     public static Drink createDrink(Scanner scanner) {
-        System.out.print("Drink size (small/medium/large): ");
+        System.out.print("Enter drink size (small/medium/large): ");
         String size = scanner.nextLine();
-        System.out.print("Drink flavor: ");
+        System.out.print("Enter flavor: ");
         String flavor = scanner.nextLine();
         return new Drink(size, flavor);
     }
 
     public static Chips createChips(Scanner scanner) {
-        System.out.print("Chip flavor: ");
+        System.out.print("Enter chip flavor: ");
         String flavor = scanner.nextLine();
         return new Chips(flavor);
     }

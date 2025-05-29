@@ -24,7 +24,7 @@ public class Sandwich extends MenuProduct {
         StringBuilder sb = new StringBuilder(name + (toasted ? " (toasted)" : "") + "\n");
         for (Topping topping : toppings) {
             sb.append("  - ").append(topping.getDescription())
-                    .append(" ($").append(String.format("%.2f", topping.getPrice())).append(")\n");
+                    .append(" [$").append(String.format("%.2f", topping.getPrice())).append("]\n");
         }
         return sb.toString();
     }

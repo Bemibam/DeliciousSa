@@ -10,7 +10,7 @@ public class Topping extends MenuProduct {
 
     @Override
     public double getPrice() {
-        return isExtra ? basePrice * 1.5 : basePrice;
+        return isExtra ? basePrice + 1.00 : basePrice;
     }
 
     @Override

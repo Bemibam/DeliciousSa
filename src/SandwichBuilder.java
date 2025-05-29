@@ -1,92 +1,107 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class SandwichBuilder {
+    private static final String[] breads = {"White", "Wheat", "Rye", "Wrap"};
+    private static final String[] meats = {"Steak", "Ham", "Salami", "Roast Beef", "Chicken", "Bacon"};
+    private static final String[] cheeses = {"American", "Provolone", "Cheddar", "Swiss"};
+    private static final String[] toppings = {"Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapeños", "Cucumbers", "Pickles", "Guacamole", "Mushrooms"};
+    private static final String[] sauces = {"Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette"};
 
-    private static final Map<String, Double> breadPrices = Map.of(
-            "white", 5.50,
-            "wheat", 5.50,
-            "rye", 5.50,
-            "wrap", 5.50
+    private static final Map<String, Double> meatPrices = Map.ofEntries(
+            Map.entry("Steak", 1.00), Map.entry("Ham", 1.00), Map.entry("Salami", 1.00),
+            Map.entry("Roast Beef", 1.00), Map.entry("Chicken", 1.00), Map.entry("Bacon", 1.00)
     );
 
-    private static final Map<String, Double> meatPrices = Map.of(
-            "steak", 1.00,
-            "ham", 1.00,
-            "salami", 1.00,
-            "roast beef", 1.00,
-            "chicken", 1.00,
-            "bacon", 1.00
+    private static final Map<String, Double> cheesePrices = Map.ofEntries(
+            Map.entry("American", 0.75), Map.entry("Provolone", 0.75),
+            Map.entry("Cheddar", 0.75), Map.entry("Swiss", 0.75)
     );
-
-    private static final Map<String, Double> cheesePrices = Map.of(
-            "american", 0.75,
-            "provolone", 0.75,
-            "cheddar", 0.75,
-            "swiss", 0.75
-    );
-
-    private static final String[] regularToppings = {
-            "lettuce", "peppers", "onions", "tomatoes", "jalapeños",
-            "cucumbers", "pickles", "guacamole", "mushrooms"
-    };
-
-    private static final String[] sauces = {
-            "mayo", "mustard", "ketchup", "ranch", "thousand islands", "vinaigrette"
-    };
 
     public static Sandwich build(Scanner scanner) {
-        // Step 1: Bread
-        System.out.print("Select bread (white/wheat/rye/wrap): ");
-        String breadType = scanner.nextLine().trim().toLowerCase();
-        double breadPrice = breadPrices.getOrDefault(breadType, 5.50);
-        Bread bread = new Bread(breadType, breadPrice);
+        // Bread
+        String breadType = promptCategory(scanner, "Select Bread:", breads, true);
+        if (breadType == null) return null;
+        Bread bread = new Bread(breadType.toLowerCase(), 5.50);
 
-        // Step 2: Size
-        System.out.print("Choose sandwich size (4\" / 8\" / 12\"): ");
-        String size = scanner.nextLine().trim();
+        // Size
+        System.out.println("Select sandwich size:");
+        System.out.println("1) 4\"    2) 8\"    3) 12\"");
+        String sizeOption = scanner.nextLine();
+        String size = switch (sizeOption) {
+            case "1" -> "4";
+            case "2" -> "8";
+            case "3" -> "12";
+            case "#" -> "8"; // default if skipped
+            default -> {
+                System.out.println("Invalid input. Using default size 8\".");
+                yield "8";
+            }
+        };
 
-        // Step 3: Toppings
-        List<Topping> toppings = new ArrayList<>();
+        List<Topping> allToppings = new ArrayList<>();
 
-        for (String meat : meatPrices.keySet()) {
-            System.out.print("Add " + meat + "? (yes/no): ");
-            if (scanner.nextLine().equalsIgnoreCase("yes")) {
-                System.out.print("Extra " + meat + "? (yes/no): ");
-                boolean extra = scanner.nextLine().equalsIgnoreCase("yes");
-                toppings.add(new Topping(meat, meatPrices.get(meat), extra));
+        // Meats
+        for (String meat : meats) {
+            if (askYesNo(scanner, "Add " + meat + " (1.00)?")) {
+                boolean extra = askYesNo(scanner, "Add extra " + meat + " (+$1.00)?");
+                allToppings.add(new Topping(meat, 1.00, extra));
             }
         }
 
-        for (String cheese : cheesePrices.keySet()) {
-            System.out.print("Add " + cheese + "? (yes/no): ");
-            if (scanner.nextLine().equalsIgnoreCase("yes")) {
-                System.out.print("Extra " + cheese + "? (yes/no): ");
-                boolean extra = scanner.nextLine().equalsIgnoreCase("yes");
-                toppings.add(new Topping(cheese, cheesePrices.get(cheese), extra));
+        // Cheeses
+        for (String cheese : cheeses) {
+            if (askYesNo(scanner, "Add " + cheese + " (0.75)?")) {
+                boolean extra = askYesNo(scanner, "Add extra " + cheese + " (+$0.75)?");
+                allToppings.add(new Topping(cheese, 0.75, extra));
             }
         }
 
-        for (String topping : regularToppings) {
-            System.out.print("Add " + topping + "? (yes/no): ");
-            if (scanner.nextLine().equalsIgnoreCase("yes")) {
-                toppings.add(new Topping(topping, 0.00, false));
+        // Regular toppings
+        for (String top : toppings) {
+            if (askYesNo(scanner, "Add " + top + "?")) {
+                allToppings.add(new Topping(top, 0.0, false));
             }
         }
 
+        // Sauces
         for (String sauce : sauces) {
-            System.out.print("Add " + sauce + "? (yes/no): ");
-            if (scanner.nextLine().equalsIgnoreCase("yes")) {
-                toppings.add(new Topping(sauce, 0.00, false));
+            if (askYesNo(scanner, "Add " + sauce + "?")) {
+                allToppings.add(new Topping(sauce, 0.0, false));
             }
         }
 
-        // Toasted?
-        System.out.print("Would you like the sandwich toasted? (yes/no): ");
-        boolean toasted = scanner.nextLine().equalsIgnoreCase("yes");
+        boolean toasted = askYesNo(scanner, "Would you like it toasted?");
+        return new Sandwich(size, bread, allToppings, toasted);
+    }
 
-        return new Sandwich(size, bread, toppings, toasted);
+    private static String promptCategory(Scanner scanner, String label, String[] options, boolean allowCancel) {
+        while (true) {
+            System.out.println(label);
+            for (int i = 0; i < options.length; i++) {
+                System.out.printf("%d) %s%n", i + 1, options[i]);
+            }
+            if (allowCancel) {
+                System.out.println("#) Skip\nZ) Cancel Order");
+            }
+
+            System.out.print("Enter your choice: ");
+            String input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("Z")) {
+                System.out.println("❌ Order canceled.");
+                return null;
+            }
+            if (input.equalsIgnoreCase("#")) return options[0]; // default bread
+            try {
+                int num = Integer.parseInt(input);
+                if (num >= 1 && num <= options.length) return options[num - 1];
+            } catch (NumberFormatException ignored) {}
+            System.out.println("Invalid input. Try again.");
+        }
+    }
+
+    private static boolean askYesNo(Scanner scanner, String prompt) {
+        System.out.print(prompt + " (yes/no): ");
+        return scanner.nextLine().equalsIgnoreCase("yes");
     }
 }

@@ -20,4 +20,3 @@ public class Bread extends MenuProduct {
         return name + " bread";
     }
 }
-
