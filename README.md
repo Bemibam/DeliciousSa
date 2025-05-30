@@ -55,30 +55,27 @@ Some of the major concepts used:
 | 🎨 Color & Emoji Friendly   | Everything is formatted with fun emojis and ANSI colors to make it engaging  |
 
 ---
-![ Image May 29, 2025, 08_58_44 PM](https://github.com/user-attachments/assets/5434485c-920c-44d0-b2fa-f9d67467d2a3) 
+![diagdelicious_uml_diagram](https://github.com/user-attachments/assets/01af8f51-f895-40ed-ba15-31f8caf9bbd1)
+
 
 ---
 
 ## 📸 Sample Output (Looks Like This)
 
-```text
-=== 🧾 New Order Summary ===
-Order Type: Dine-in
-Time: 2025-05-30 13:42:17
+Order Type: Takeout
+Time: 2025-05-30 14:12:05
 
-- 8" white Sandwich (toasted)
-  - Bacon (extra) [$2.00]
-  - Cheddar [$1.50]
-  - Lettuce [$0.00]
-  - Tomato [$0.00]
-  - Ranch [$0.00]
+- 12" Wheat Sandwich (toasted)
+  - Ham [$1.50]
+  - Swiss (extra) [$2.00]
+  - Pickles [$0.00]
+  - Mustard [$0.00]
 
-- Chips - BBQ [$1.50]
-- Medium Mango Drink [$2.50]
+- Large Lemonade [$2.50]
+- Chips - Jalapeño [$1.50]
 
-Subtotal: $7.50
-
-
-Tax (10%): $0.75  
-Total: $8.25  
+Subtotal: $11.50  
+Tax (10%): $1.15  
+Tip: $2.00  
+Total: $14.65  
 Estimated Wait Time: 10–15 minutes
