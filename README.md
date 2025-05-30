@@ -56,6 +56,10 @@ Some of the major concepts used:
 
 ---
 
+
+![Uploading Screenshot 2025-05-29 at 8.59.02 PM.png…]()
+
+
 ## 📸 Sample Output (Looks Like This)
 
 ```text
@@ -75,7 +79,6 @@ Time: 2025-05-30 13:42:17
 
 Subtotal: $7.50
 
-![Uploading Screenshot 2025-05-29 at 8.59.02 PM.png…]()
 
 Tax (10%): $0.75  
 Total: $8.25  
