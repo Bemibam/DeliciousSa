@@ -73,7 +73,10 @@ Time: 2025-05-30 13:42:17
 - Chips - BBQ [$1.50]
 - Medium Mango Drink [$2.50]
 
-Subtotal: $7.50  
+Subtotal: $7.50
+
+![Uploading Screenshot 2025-05-29 at 8.59.02 PM.png…]()
+
 Tax (10%): $0.75  
 Total: $8.25  
 Estimated Wait Time: 10–15 minutes
