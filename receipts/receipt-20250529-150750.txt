@@ -1,0 +1,13 @@
+[36m=== 🧾 New Order Summary ===[0m
+Order Type: Dine-in
+Time: 2025-05-29 15:07:50
+
+- 8" white Sandwich
+  - Ham [$1.00]
+  - Salami [$1.00]
+ [$7.50]
+
+Subtotal: $7.50
+Tax (10%): $0.75
+Total: $8.25
+Estimated Wait Time: 10–15 minutes

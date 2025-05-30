@@ -1,0 +1,10 @@
+🧾 Order Summary:
+- 8" white Sandwich (toasted)
+  - ham (extra) ($1.50)
+  - steak ($1.00)
+  - provolone ($0.75)
+  - american ($0.75)
+ [$9.50]
+Subtotal: $9.50
+Tax (10%): $0.95
+Total: $10.45

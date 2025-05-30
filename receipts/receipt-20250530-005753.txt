@@ -1,0 +1,25 @@
+[36m=== 🧾 Order Summary ===[0m
+Order Type: Dine-in
+Time: 2025-05-30 00:57:53
+
+- 8" White bread
+  - Pickles [$0.00]
+  - Mayo [$0.00]
+  - Bacon [$2.00]
+  - Swiss [$1.50]
+ [$10.50]
+- medium Cola [$2.50]
+- Chips - Lays Classic [$1.50]
+- 8" White bread (toasted)
+  - Bacon [$2.00]
+  - Cheddar [$1.50]
+  - Lettuce [$0.00]
+  - Tomatoes [$0.00]
+  - Ranch [$0.00]
+ [$10.50]
+
+Subtotal: $25.00
+Tax (10%): $2.50
+Tip: $9.00
+Total: $36.50
+Estimated Wait Time: 10–15 minutes

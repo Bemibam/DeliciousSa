@@ -1,0 +1,33 @@
+[36m=== 🧾 New Order Summary ===[0m
+Order Type: Dine-in
+Time: 2025-05-29 00:04:43
+
+- small sprite  [$2.00]
+- 8" white Sandwich
+  - Provolone [$0.75]
+  - Onions [$0.00]
+  - Jalapeños [$0.00]
+  - Mayo [$0.00]
+  - Ranch [$0.00]
+  - Vinaigrette [$0.00]
+ [$6.25]
+- 8" white Sandwich (toasted)
+  - bacon [$2.00]
+  - cheddar [$1.50]
+  - lettuce [$0.00]
+  - tomato [$0.00]
+  - ranch [$0.00]
+ [$10.50]
+- 8" white Sandwich (toasted)
+  - bacon [$2.00]
+  - cheddar [$1.50]
+  - lettuce [$0.00]
+  - tomato [$0.00]
+  - ranch [$0.00]
+ [$10.50]
+- Chips - 5 [$1.50]
+
+Subtotal: $30.75
+Tax (10%): $3.08
+Total: $33.83
+Estimated Wait Time: 10–15 minutes

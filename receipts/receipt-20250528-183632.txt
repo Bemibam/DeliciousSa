@@ -1,0 +1,5 @@
+🧾 Order Summary:
+- Chips - spicy [$1.50]
+Subtotal: $1.50
+Tax (10%): $0.15
+Total: $1.65

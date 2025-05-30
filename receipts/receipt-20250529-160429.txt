@@ -1,0 +1,24 @@
+[36m=== 🧾 New Order Summary ===[0m
+Order Type: Dine-in
+Time: 2025-05-29 16:04:29
+
+- 12" Ciabatta Sandwich
+  - Steak [$1.00]
+  - Ham [$1.00]
+  - Salami [$1.00]
+  - Ranch [$0.00]
+ [$8.50]
+- Small Orange Soda Drink [$2.00]
+- Jalapeño Chips [$1.50]
+- 8" white Sandwich (toasted)
+  - Bacon [$1.50]
+  - Cheddar [$0.75]
+  - Lettuce [$0.00]
+  - Tomato [$0.00]
+  - Ranch [$0.00]
+ [$9.25]
+
+Subtotal: $21.25
+Tax (10%): $2.13
+Total: $23.38
+Estimated Wait Time: 10–15 minutes
