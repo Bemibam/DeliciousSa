@@ -10,12 +10,12 @@ public class Order {
     private String orderType = "Dine-in";
 
     public void setOrderType(String type) {
-        if (type.equalsIgnoreCase("1")) this.orderType = "Dine-in";
-        else if (type.equalsIgnoreCase("2")) this.orderType = "Takeout";
+        if (type.equals("1")) this.orderType = "Dine-in";
+        else if (type.equals("2")) this.orderType = "Takeout";
     }
 
     public void addItem(MenuProduct item) {
-        items.add(item);
+        if (item != null) items.add(item);
     }
 
     public double getSubtotal() {

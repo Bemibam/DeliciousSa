@@ -7,7 +7,7 @@ public class Sandwich extends MenuProduct {
     private boolean toasted;
 
     public Sandwich(String size, Bread bread, List<Topping> toppings, boolean toasted) {
-        super(size + "\" " + bread.getName() + " Sandwich");
+        super(size + "\" " + bread.getDescription());
         this.size = size;
         this.bread = bread;
         this.toppings = toppings;
@@ -16,15 +16,19 @@ public class Sandwich extends MenuProduct {
 
     @Override
     public double getPrice() {
-        return bread.getPrice() + toppings.stream().mapToDouble(Topping::getPrice).sum();
+        double total = bread.getPrice();
+        for (Topping topping : toppings) {
+            total += topping.getPrice();
+        }
+        return total;
     }
 
     @Override
     public String getDescription() {
         StringBuilder sb = new StringBuilder(name + (toasted ? " (toasted)" : "") + "\n");
         for (Topping topping : toppings) {
-            sb.append("  - ").append(topping.getDescription())
-                    .append(" [$").append(String.format("%.2f", topping.getPrice())).append("]\n");
+            sb.append("  - ").append(topping.getDescription()).append(" [$")
+                    .append(String.format("%.2f", topping.getPrice())).append("]\n");
         }
         return sb.toString();
     }

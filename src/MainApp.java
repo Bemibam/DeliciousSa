@@ -15,20 +15,9 @@ public class MainApp {
             switch (choice) {
                 case "1" -> {
                     Order order = new Order();
-
-                    System.out.println("\n🏷️ Order Type:");
-                    System.out.println("1) 🍽️ Dine-in");
-                    System.out.println("2) 🛍️ Takeout");
+                    System.out.println("1) 🍽️ Dine-in\n2) 🛍️ Takeout");
                     System.out.print("👉 Enter your choice: ");
-                    String typeChoice = scanner.nextLine();
-                    if (typeChoice.equals("1")) {
-                        order.setOrderType("Dine-in");
-                    } else if (typeChoice.equals("2")) {
-                        order.setOrderType("Takeout");
-                    } else {
-                        System.out.println("❌ Invalid input. Defaulting to Takeout.");
-                        order.setOrderType("Takeout");
-                    }
+                    order.setOrderType(scanner.nextLine());
 
                     boolean ordering = true;
                     while (ordering) {
@@ -40,30 +29,18 @@ public class MainApp {
                         System.out.println("5) ✅ Checkout");
                         System.out.println("0) ❌ Cancel Order");
                         System.out.print("👉 Select an option: ");
-                        String option = scanner.nextLine();
-
-                        switch (option) {
+                        switch (scanner.nextLine()) {
                             case "1" -> order.addItem(OrderUtils.createSandwich(scanner));
                             case "2" -> order.addItem(OrderUtils.createDrink(scanner));
                             case "3" -> order.addItem(OrderUtils.createChips(scanner));
                             case "4" -> {
-                                System.out.println("\n⭐ Signature Sandwiches:");
-                                System.out.println("1) 🥓 BLT");
-                                System.out.println("2) 🧀 Philly Cheese");
-                                System.out.println("3) 🥬 Veggie Delight");
-                                System.out.print("👉 Enter your choice (1-3, # to skip, z to cancel): ");
-                                String type = scanner.nextLine();
-
-                                switch (type) {
+                                System.out.println("1) BLT  2) Philly Cheese  3) Veggie Delight");
+                                System.out.print("Choose (1–3): ");
+                                String choiceSig = scanner.nextLine();
+                                switch (choiceSig) {
                                     case "1" -> order.addItem(new SignatureSandwich("blt"));
                                     case "2" -> order.addItem(new SignatureSandwich("philly cheese"));
                                     case "3" -> order.addItem(new SignatureSandwich("veggie delight"));
-                                    case "#" -> System.out.println("⏭️ Skipped.");
-                                    case "z" -> {
-                                        System.out.println("❌ Canceled Signature Sandwich.");
-                                        break;
-                                    }
-                                    default -> System.out.println("❌ Invalid input.");
                                 }
                             }
                             case "5" -> {
@@ -71,7 +48,7 @@ public class MainApp {
                                 System.out.print("🧾 Confirm order? (yes/no): ");
                                 if (scanner.nextLine().equalsIgnoreCase("yes")) {
                                     order.saveReceipt();
-                                    System.out.println("⏳ Estimated Wait Time: 10–15 minutes");
+                                    System.out.println("Order placed! ✅");
                                 }
                                 ordering = false;
                             }
@@ -79,18 +56,17 @@ public class MainApp {
                                 System.out.println("🗑️ Order canceled.");
                                 ordering = false;
                             }
-                            default -> System.out.println("❌ Invalid input. Please try again.");
+                            default -> System.out.println("❌ Invalid input.");
                         }
                     }
                 }
                 case "0" -> {
-                    System.out.println("👋 Thank you for visiting DELI-cious. Goodbye!");
+                    System.out.println("👋 Thank you for visiting DELI-cious!");
                     running = false;
                 }
-                default -> System.out.println("❌ Invalid option. Please try again.");
+                default -> System.out.println("❌ Invalid input.");
             }
         }
-
         scanner.close();
     }
 }

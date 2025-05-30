@@ -6,10 +6,6 @@ public class Bread extends MenuProduct {
         this.price = price;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public double getPrice() {
         return price;
