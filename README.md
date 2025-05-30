@@ -55,8 +55,7 @@ Some of the major concepts used:
 | 🎨 Color & Emoji Friendly   | Everything is formatted with fun emojis and ANSI colors to make it engaging  |
 
 ---
-![Uploading Image12 2025-05-29 at 8.59.02 PM.png…]()
-
+![Image May 29, 2025, 08_58_44 PM](https://github.com/user-attachments/assets/15c8def6-4ce5-4a9f-b1c2-104a77de6c4e)
 
 ---
 
