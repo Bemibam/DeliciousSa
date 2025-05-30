@@ -55,10 +55,9 @@ Some of the major concepts used:
 | 🎨 Color & Emoji Friendly   | Everything is formatted with fun emojis and ANSI colors to make it engaging  |
 
 ---
-
-
 ![Uploading Screenshot 2025-05-29 at 8.59.02 PM.png…]()
 
+---
 
 ## 📸 Sample Output (Looks Like This)
 
